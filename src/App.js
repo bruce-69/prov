@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App() {  
+let [lista, setLista] = useState ([""])
+let [novoItem, setNovoItem] = useState("")
+
+return(
+  <>
+  <input value={novoItem} onChange={value => setNovoItem (value.target.value)} type="text"/>
+  <button onClick={() =>adicionarNovoItem ()}>Adicionar</button>
+<ul> 
+  {lista.map((item, index) =>(
+     <li>{item}
+     <button onClick={() => deletarItem(index)}>Deletar</button>
+     </li>
+  ))}
+</ul>
+</>
+)
+
+function adicionarNovoItem (){
+setLista([...lista , novoItem])
+setNovoItem("")
+
+
+function deletarItem (index){
+  let temporario = [...lista]
+temporario.splice(index , 1)
+setLista(temporario)
+ }
 }
+
+
+}
+
 
 export default App;
