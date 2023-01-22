@@ -4,11 +4,8 @@ import './App.css';
 function App() {  
 let [lista, setLista] = useState ([""])
 let [novoItem, setNovoItem] = useState("")
+
   
-useEffect(() => {
-  setLista (["tarefa1"])
-},
- [])
 
 return(
   <>
