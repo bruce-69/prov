@@ -4,6 +4,11 @@ import './App.css';
 function App() {  
 let [lista, setLista] = useState ([""])
 let [novoItem, setNovoItem] = useState("")
+  
+useEffect(() => {
+  setLista (["tarefa1"])
+},
+ [])
 
 return(
   <>
@@ -22,7 +27,7 @@ return(
 function adicionarNovoItem (){
 setLista([...lista , novoItem])
 setNovoItem("")
-
+}
 
 function deletarItem (index){
   let temporario = [...lista]
@@ -32,7 +37,7 @@ setLista(temporario)
 }
 
 
-}
+
 
 
 export default App;
